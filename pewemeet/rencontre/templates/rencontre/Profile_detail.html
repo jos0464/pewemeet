@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<table class="table table-bordered">
+<tr>
+    <td>Name</td>
+    <td>{{ Profile.user }}</td>
+</tr>
+<tr>
+    <td>Date Of Birth</td>
+    <td>{{Profile.birth_date|date:"DATE_FORMAT"}} <h4><span class="label label-default"> {{ Profile.birth_date|timesince }} </span></h4> </td>
+</tr>
+<tr>
+    <td>Photo</td>
+    <td><img src="/{{ Profile.avatar }}" class="img-responsive"  alt="{{ Profile.avatar }}" width="400" height="250" ></td>
+</tr>
+<tr>
+    <td>Gender</td>
+    {% if Profile.gender == "F" %}
+        <td>Female</td>
+    {% else %}
+        <td>Male</td>
+    {% endif %}
+</tr>
+<tr>
+    <td>Country</td>
+    <td>{{ Profile.country }}</td>
+</tr>
+<tr>
+    <td>City</td>
+    <td>{{ Profile.city }}</td>
+</tr>
+<tr>
+    <td>Status</td>
+     {% if Profile.status == "S" %}
+        <td>Single {{Profile.status}}</td>
+     {% endif %}
+     {% if Profile.status == "D" %}
+        <td>Divorced {{Profile.status}}</td>
+     {% endif %}
+     {% if Profile.status == "O" %}
+        <td>Other {{Profile.status}}</td>
+     {% endif %}
+</tr>
+<tr>
+    <td>Shomer Shabbat</td>
+    {% if Profile.religion %}
+        <td><h4><span class="label label-default">Yes</span></h4></td>
+    {% else %}
+        <td><h4><span class="label label-default">No</span></h4></td>
+    {%endif %}
+</tr>
+<tr>
+    <td>Childrens</td>
+    {% if Profile.children %}
+        <td><h4><span class="label label-default">Yes</span></h4></td>
+    {% else %}
+        <td><h4><span class="label label-default">No</span></h4></td>
+    {%endif %}
+</tr>
+<tr>
+    <td>Comment </td>
+    <td><blockquote>{{Profile.descrption}}</blockquote></td>
+</tr>
+</table>
+        <button type="submit" class="btn btn-default btn-lg btn-block"  value="message" ><a href="/message" style="text-decoration:none" >Send Message <span class="glyphicon glyphicon-comment"></span></button>
+
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<table class="table">
+<tr>
+    <td>Name</td>
+    <td>{{ Profile.user.username }}</td>
+</tr>
+<tr>
+    <td>Date Of Birth</td>
+    <td>{{Profile.birth_date|date:"DATE_FORMAT"}} <h4><span class="label label-default"> {{ Profile.birth_date|timesince }} </span></h4> </td>
+</tr>
+<tr>
+    <td>Photo</td>
+    <td><img src="{{ Profile.avatar }}" class="img-circle"  alt="{{ Profile.avatar }}" width="200" height="200" ></td>
+</tr>
+<tr>
+    <td>Gender</td>
+    {% if Profile.gender == "F" %}
+        <td>Female</td>
+    {% else %}
+        <td>Male</td>
+    {% endif %}
+</tr>
+<tr>
+    <td>Status</td>
+     {% if Profile.status == "S" %}
+        <td>Single {{Profile.status}}</td>
+     {% endif %}
+     {% if Profile.status == "D" %}
+        <td>Divorced {{Profile.status}}</td>
+     {% endif %}
+     {% if Profile.status == "O" %}
+        <td>Other {{Profile.status}}</td>
+     {% endif %}
+</tr>
+<tr>
+    <td>Shomer Shabbat</td>
+    {% if Profile.religion %}
+        <td><h4><span class="label label-default">Yes</span></h4></td>
+    {% else %}
+        <td><h4><span class="label label-default">No</span></h4></td>
+    {%endif %}
+</tr>
+<tr>
+    <td>Childrens</td>
+    {% if Profile.children %}
+        <td><h4><span class="label label-default">Yes</span></h4></td>
+    {% else %}
+        <td><h4><span class="label label-default">No</span></h4></td>
+    {%endif %}
+</tr>
+<tr>
+    <td>Comment </td>
+    <td>{{Profile.descrption}}</td>
+</tr>
+</table>
+        <button type="submit" class="btn btn-default btn-lg btn-block"  value="message" ><a href="/message" >Send Message<span class="glyphicon glyphicon-search"></span></button>
+
+{% endblock %}

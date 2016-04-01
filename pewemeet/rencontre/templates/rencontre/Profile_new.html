@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+<link href="/media/css/base.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="/admin/jsi1n/"></script>
+<script type="text/javascript" src="/media/js/core.js"></script>
+{% block content %}
+
+
+<form action="" method="post">{% csrf_token %}
+    {#{ form.as_p }#}
+<table class="table">
+<tr>
+    <td>{{ form.user.label_tag }}</td>
+    <td>{{ form.user }}</td>
+</tr>
+<tr>
+    <td>{{form.birth_date.label_tag}}</td>
+    <td>{{form.birth_date}}{{ form.media }}</td>
+</tr>
+<tr>
+    <td>{{form.avatar.label_tag}}</td>
+    <td>{{form.avatar}}</td>
+</tr>
+<tr>
+    <td>{{form.gender.label_tag}}</td>
+    <td>{{form.gender}}</td>
+</tr>
+<tr>
+    <td>{{form.status.label_tag}}</td>
+    <td>{{form.status}}</td>
+</tr>
+<tr>
+    <td>{{form.religion.label_tag}}</td>
+    <td>{{form.religion}}</td>
+</tr>
+<tr>
+    <td>{{form.children.label_tag}}</td>
+    <td>{{form.children}}</td>
+</tr>
+<tr>
+    <td>{{form.descrption.label_tag}}</td>
+    <td>{{form.descrption}}</td>
+</tr>
+</table>
+
+    {#<td><input type="submit" value="Save" /></td> #}
+    <button type="submit" class="btn btn-default btn-lg btn-block" value="Save">Save</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<table class="table table-bordered">
+<tr>
+    <td>Event</td>
+    <td>{{ tonight.Title }}</td>
+</tr>
+<tr>
+    <td>Even Date</td>
+    <td>{{ tonight.event_date }}  </td>
+</tr>
+<tr>
+    <td>Flyer</td>
+    <td><img src="/{{ tonight.flyer }}" class="img-responsive" alt="{{ tonight.flyer }}" width="400" height="250" ></td>
+</tr>
+<tr>
+    <td>Telephone</td>
+    <td>{{ tonight.telephone }}</td>
+</tr>
+<tr>
+    <td>City</td>
+    <td>{{ tonight.city }}</td>
+</tr>
+<tr>
+    <td>Comment</td>
+    <td>{{ tonight.comment }}</td>
+</tr>
+
+</table>
+{% endblock %}
+

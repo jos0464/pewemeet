@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+        {% if registered %}
+        <div class="alert alert-success">
+            <strong>thank you for registering!</strong>
+            <a href="/">Return to the homepage.</a><br />
+        </div>
+        {% else %}
+        <br>
+        <form id="user_form" method="post" action=""
+                enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            <!-- Display each form. The as_p method wraps each element in a paragraph
+                 (<p>) element. This ensures each element appears on a new line,
+                 making everything look neater. -->
+        <table class="table table-bordered">
+            {{ user_form.as_table }}
+            {{ profile_form.as_table }}
+        </table>
+            <!-- Provide a button to click to submit the form. -->
+            {#<input type="submit" name="submit" value="Register" />#}
+            <button type="submit" class="btn btn-default btn-lg btn-block"  value="register" >Register</button>
+
+        </form>
+        {% endif %}
+
+{% endblock %}
